@@ -21,16 +21,19 @@ class Expenses extends Component {
     var expenses = {
         headers : {
             name : "Name",
-            value: "Value"
+            value: "Value",
+            date: "Date"
         },
         contents: [
             {
                 name: "test",
-                value: 10
+                value: 10,
+                date: "12/20/2018"
             },
             {
                 name: "test 2",
-                value: 20
+                value: 20,
+                date: "12/20/2018"
             }
         ]
     };
