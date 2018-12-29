@@ -12,30 +12,17 @@ class Expenses extends Component {
   }
 
   async componentDidMount() {
-    // const expenses = (await axios.get('http://localhost:8081/')).data;
-    // this.setState({
-    //   expenses,
-    // });
+    var data = (await axios.get('http://localhost:1234/expenses')).data;
 
-    // TODO: Implement database to fetch the expenses
+    // TODO: Implement headers fetch from database
     var expenses = {
         headers : {
             name : "Name",
-            value: "Value",
+            price: "Price",
+            category: "category",
             date: "Date"
         },
-        contents: [
-            {
-                name: "test",
-                value: 10,
-                date: "12/20/2018"
-            },
-            {
-                name: "test 2",
-                value: 20,
-                date: "12/20/2018"
-            }
-        ]
+        contents: data
     };
 
     this.setState({
@@ -48,13 +35,13 @@ class Expenses extends Component {
       <div className="container">
         <div className="row">
           {this.state.expenses === null && <p>Loading Expenses...</p>}
-          <table class="table table-hover">
+          <table className="table table-hover">
               <thead>
                 <tr>
                     {
                         this.state.expenses && this.state.expenses.headers &&
-                        Object.keys(this.state.expenses.headers).map(key => (
-                            <td>{this.state.expenses.headers[key]}</td>
+                        Object.keys(this.state.expenses.headers).map((key, index) => (
+                            <td key={index}>{this.state.expenses.headers[key]}</td>
                         ))
                     }
                 </tr>
@@ -63,10 +50,10 @@ class Expenses extends Component {
                     {
                         this.state.expenses && this.state.expenses.contents &&
                         this.state.expenses.contents.map(expense => (
-                            <tr>
+                            <tr key={expense._id}>
                                 {
-                                    Object.keys(this.state.expenses.headers).map(key => (
-                                        <td> {expense[key]} </td>
+                                    Object.keys(this.state.expenses.headers).map((key, index) => (
+                                        <td key={index}> {expense[key]} </td>
                                     ))
                                 }
                             </tr>
