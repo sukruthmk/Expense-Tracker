@@ -8,6 +8,7 @@ function CreateButton() {
                 <div className="row-container width100">
                     <div className="btn-group float-right" role="group">
                         <Link className="btn btn-outline-primary" to="/add">
+                            {/* Integrate fontawesome */}
                             <i className="fa fa-plus" aria-hidden="true"></i>
                             Add
                         </Link>
