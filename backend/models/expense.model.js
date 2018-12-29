@@ -10,7 +10,7 @@ let ExpenseSchema = new Schema({
     category: {type: String, max: 50},
     location: {type: String, max: 100},
     price: {type: Number, required: true},
-    date: {type: Date, required: true}
+    date: {type: Date, required: true, default: Date.now}
 });
 
 

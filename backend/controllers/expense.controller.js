@@ -1,5 +1,12 @@
 const Expense = require('../models/expense.model');
 
+exports.read = function (req, res) {
+    Expense.find({}, function (err, expenses) {
+        if (err) return next(err);
+          res.send(expenses);
+    });
+};
+
 exports.create = function (req, res) {
     let expense = new Expense(
         {
@@ -16,7 +23,6 @@ exports.create = function (req, res) {
             // TODO: implement proper method to display errors
             return res.send(err);
         }
-        console.log("coming inside");
         res.send('Expense Created successfully');
     })
 };
