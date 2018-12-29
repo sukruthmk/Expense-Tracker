@@ -1,4 +1,8 @@
 const mongoose = require('mongoose');
+
+// TODO: remove debug
+mongoose.set('debug', true);
+
 const Schema = mongoose.Schema;
 
 let ExpenseSchema = new Schema({

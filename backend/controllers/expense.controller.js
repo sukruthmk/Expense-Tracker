@@ -1,4 +1,4 @@
-const Product = require('../models/expense.model');
+const Expense = require('../models/expense.model');
 
 exports.create = function (req, res) {
     let expense = new Expense(
@@ -13,8 +13,10 @@ exports.create = function (req, res) {
 
     expense.save(function (err) {
         if (err) {
-            return next(err);
+            // TODO: implement proper method to display errors
+            return res.send(err);
         }
-        res.send('Expense Created successfully')
+        console.log("coming inside");
+        res.send('Expense Created successfully');
     })
 };

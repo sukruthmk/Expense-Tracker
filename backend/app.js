@@ -22,11 +22,12 @@ app.use(cors());
 app.use(morgan('combined'));
 
 // Load Config
-const config = require('./config.json');
+const config = require('./configs/expense.config.json');
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
 let db_url = config.db_url;
+console.log(db_url);
 let mongoDB = process.env.MONGODB_URI || db_url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
