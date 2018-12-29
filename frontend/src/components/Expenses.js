@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 class Expenses extends Component {
@@ -18,8 +18,8 @@ class Expenses extends Component {
     var expenses = {
         headers : {
             name : "Name",
+            category: "Category",
             price: "Price",
-            category: "category",
             date: "Date"
         },
         contents: data
