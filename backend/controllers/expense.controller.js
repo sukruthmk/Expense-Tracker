@@ -1,7 +1,7 @@
 const Expense = require('../models/expense.model');
 
 exports.read = function (req, res) {
-    Expense.find({}, function (err, expenses) {
+    Expense.find().sort('-date').find(function (err, expenses) {
         if (err) return next(err);
           res.send(expenses);
     });

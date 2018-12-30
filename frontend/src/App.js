@@ -10,7 +10,7 @@ class App extends Component {
       <div>
         <NavBar/>
         <Route exact path='/' component={Expenses}/>
-        <Route exact path='/' component={AddExpense}/>
+        <Route exact path='/add' component={AddExpense}/>
       </div>
     );
   }

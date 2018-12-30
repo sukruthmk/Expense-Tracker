@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import CreateButton from './CreateButton';
+import ExpenseSummary from './ExpenseSummary';
 
 class Expenses extends Component {
   constructor(props) {
@@ -33,6 +34,8 @@ class Expenses extends Component {
   render() {
     return (
         <div>
+            <ExpenseSummary expenses={this.state.expenses}>
+            </ExpenseSummary>
             <CreateButton>
             </CreateButton>
             <div className="container">
